@@ -31,24 +31,30 @@ public class WordFrequencyGame {
                 Map<String, List<WordInfo>> map =getListMap(infos);
 
                 List<WordInfo> list = new ArrayList<>();
-                for (Map.Entry<String, List<WordInfo>> entry : map.entrySet()) {
-                    WordInfo wordInfo = new WordInfo(entry.getKey(), entry.getValue().size());
-                    list.add(wordInfo);
-                }
-                infos = list;
 
-                infos.sort((firstWordInfo, secondWordInfo) -> secondWordInfo.getWordCount() - firstWordInfo.getWordCount());
-
-                StringJoiner joiner = new StringJoiner(NEW_LINE_DELIMITER);
-                for (WordInfo wordInfo : infos) {
-                    String s = wordInfo.getValue() + BLANK_SPACE +wordInfo.getWordCount();
-                    joiner.add(s);
-                }
-                return joiner.toString();
+                return generateWordFrequencyResult(map, list);
             } catch (Exception e) {
                 return CALCULATE_ERROR;
             }
         }
+    }
+
+    private String generateWordFrequencyResult(Map<String, List<WordInfo>> map, List<WordInfo> list) {
+        List<WordInfo> infos;
+        for (Map.Entry<String, List<WordInfo>> entry : map.entrySet()) {
+            WordInfo wordInfo = new WordInfo(entry.getKey(), entry.getValue().size());
+            list.add(wordInfo);
+        }
+        infos = list;
+
+        infos.sort((firstWordInfo, secondWordInfo) -> secondWordInfo.getWordCount() - firstWordInfo.getWordCount());
+
+        StringJoiner joiner = new StringJoiner(NEW_LINE_DELIMITER);
+        for (WordInfo wordInfo : infos) {
+            String s = wordInfo.getValue() + BLANK_SPACE +wordInfo.getWordCount();
+            joiner.add(s);
+        }
+        return joiner.toString();
     }
 
     private Map<String, List<WordInfo>> getListMap(List<WordInfo> wordInfoList) {
