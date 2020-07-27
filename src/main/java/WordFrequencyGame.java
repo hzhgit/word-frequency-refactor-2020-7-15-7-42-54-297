@@ -22,17 +22,17 @@ public class WordFrequencyGame {
 
                 String[] words = sentence.split(SPACE_PATTEN);
 
-                List<WordInfo> infos = new ArrayList<>();
+                List<WordInfo> wordInfos = new ArrayList<>();
                 for (String word : words) {
                     WordInfo wordInfo = new WordInfo(word, 1);
-                    infos.add(wordInfo);
+                    wordInfos.add(wordInfo);
                 }
 
-                Map<String, List<WordInfo>> map =getListMap(infos);
+                Map<String, List<WordInfo>> wordInfoMap =getListMap(wordInfos);
 
                 List<WordInfo> list = new ArrayList<>();
 
-                return generateWordFrequencyResult(map, list);
+                return generateWordFrequencyResult(wordInfoMap, list);
             } catch (Exception e) {
                 return CALCULATE_ERROR;
             }
