@@ -8,6 +8,7 @@ import java.util.StringJoiner;
 public class WordFrequencyGame {
     private static final String SPACE_PATTEN = "\\s+";
     private static final String BLANK_SPACE = " ";
+    private static final String NEW_LINE_DELIMITER = "\n";
 
     public String getResult(String inputStr) {
 
@@ -37,7 +38,7 @@ public class WordFrequencyGame {
 
                 inputList.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
 
-                StringJoiner joiner = new StringJoiner("\n");
+                StringJoiner joiner = new StringJoiner(NEW_LINE_DELIMITER);
                 for (Input w : inputList) {
                     String s = w.getValue() + BLANK_SPACE +w.getWordCount();
                     joiner.add(s);
