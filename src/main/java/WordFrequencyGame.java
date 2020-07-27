@@ -27,11 +27,11 @@ public class WordFrequencyGame {
         return wordCounts;
     }
 
-    private String generateWordFrequencyResult(List<WordInfo> list) {
-        list.sort((firstWordInfo, secondWordInfo) -> secondWordInfo.getWordCount() - firstWordInfo.getWordCount());
+    private String generateWordFrequencyResult(List<WordInfo> wordInfos) {
+        wordInfos.sort((firstWordInfo, secondWordInfo) -> secondWordInfo.getWordCount() - firstWordInfo.getWordCount());
 
         StringJoiner joiner = new StringJoiner(NEW_LINE_DELIMITER);
-        for (WordInfo wordInfo : list) {
+        for (WordInfo wordInfo : wordInfos) {
             String s = wordInfo.getValue() + BLANK_SPACE + wordInfo.getWordCount();
             joiner.add(s);
         }
