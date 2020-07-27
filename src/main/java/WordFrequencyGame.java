@@ -15,14 +15,6 @@ public class WordFrequencyGame {
         } else {
 
             try {
-
-//                String[] words = sentence.split(SPACE_PATTEN);
-
-//                for (String word : words) {
-//                    WordInfo wordInfo = new WordInfo(word, 1);
-//                    wordInfos.add(wordInfo);
-//                }
-
                 List<WordInfo> list = CalculateWordFrequencyResult(sentence);
                 return generateWordFrequencyResult(list);
             } catch (Exception e) {
