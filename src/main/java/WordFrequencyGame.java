@@ -15,7 +15,7 @@ public class WordFrequencyGame {
         } else {
 
             try {
-                List<WordInfo> list = CalculateWordFrequencyResult(sentence);
+                List<WordInfo> list = calculateWordFrequencyResult(sentence);
                 return generateWordFrequencyResult(list);
             } catch (Exception e) {
                 return CALCULATE_ERROR;
@@ -23,7 +23,7 @@ public class WordFrequencyGame {
         }
     }
 
-    private List<WordInfo> CalculateWordFrequencyResult(String sentence) {
+    private List<WordInfo> calculateWordFrequencyResult(String sentence) {
         String[] words = sentence.split(SPACE_PATTEN);
         List<WordInfo> wordCounts = new ArrayList<>();
         for (String wordUnique : new HashSet<>(Arrays.asList(words))) {
