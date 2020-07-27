@@ -15,7 +15,6 @@ public class WordFrequencyGame {
 
             try {
 
-                //split the input string with 1 to n pieces of spaces
                 String[] arr = inputStr.split("\\s+");
 
                 List<Input> inputList = new ArrayList<>();
@@ -24,7 +23,6 @@ public class WordFrequencyGame {
                     inputList.add(input);
                 }
 
-                //get the map for the next step of sizing the same word
                 Map<String, List<Input>> map =getListMap(inputList);
 
                 List<Input> list = new ArrayList<>();
@@ -51,7 +49,6 @@ public class WordFrequencyGame {
     private Map<String, List<Input>> getListMap(List<Input> inputList) {
         Map<String, List<Input>> map = new HashMap<>();
         for (Input input : inputList){
-//       map.computeIfAbsent(input.getValue(), k -> new ArrayList<>()).add(input);
             if (!map.containsKey(input.getValue())) {
                 ArrayList arr = new ArrayList<>();
                 arr.add(input);
